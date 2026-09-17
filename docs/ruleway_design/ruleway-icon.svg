@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+<title id="title">Ruleway — Connected R</title><desc id="desc">An R monogram whose diagonal leg joins three connected process stages through a smooth navy-to-teal gradient extending into the first stage. The letter and workflow form one integrated vector symbol. Vector lettering, no external font dependency.</desc>
+<g transform="translate(8 8)"><g transform="translate(-7.5 -1.5)"><defs><linearGradient id="route-ruleway-icon" gradientUnits="userSpaceOnUse" x1="41" y1="64" x2="60" y2="89" color-interpolation="sRGB"><stop offset="0" stop-color="#142D3B"/><stop offset="1" stop-color="#087F74"/></linearGradient></defs>
+<path d="M18 93V18H41C58 18 68 27 68 41S58 64 41 64H18" fill="none" stroke="#142D3B" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M41 64L58 92" fill="none" stroke="url(#route-ruleway-icon)" stroke-width="12" stroke-linecap="round"/>
+<path d="M58 92H81V69H104V57" fill="none" stroke="#087F74" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="47" y="81" width="22" height="22" rx="6" fill="url(#route-ruleway-icon)"/>
+<rect x="70" y="58" width="22" height="22" rx="6" fill="#087F74"/>
+<path fill="#087F74" fill-rule="evenodd" d="M99 35H109Q115 35 115 41V51Q115 57 109 57H99Q93 57 93 51V41Q93 35 99 35ZM102 43Q101 43 101 44V48Q101 49 102 49H106Q107 49 107 48V44Q107 43 106 43Z"/>
+</g></g>
+</svg>

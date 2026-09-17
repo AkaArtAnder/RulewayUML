@@ -1,0 +1,32 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/java
+{
+  "name": "ruleway_uml",
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+
+  // Configure tool-specific properties.
+  "customizations": {
+    // Configure properties specific to VS Code.
+    "vscode": {
+      // Add the IDs of extensions you want installed when the container is created.
+      "extensions": [
+        "streetsidesoftware.code-spell-checker",
+        "vscjava.vscode-java-pack",
+        "njpwerner.autodocstring",
+        "eamodio.gitlens",
+        "tamasfe.even-better-toml",
+        "mhutchie.git-graph",
+        "wayou.vscode-todo-highlight"
+      ]
+    }
+  }
+
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "root"
+}
