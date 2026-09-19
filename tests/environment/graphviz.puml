@@ -1,0 +1,7 @@
+@startuml
+' Диаграмма классов нужна только для проверки запуска Graphviz из PlantUML.
+skinparam defaultFontName DejaVu Sans
+class "Заявка" as Request
+class "Результат" as Result
+Request --> Result : обработка
+@enduml

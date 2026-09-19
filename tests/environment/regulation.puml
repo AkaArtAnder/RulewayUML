@@ -1,0 +1,35 @@
+@startuml
+!include step.iuml
+skinparam defaultFontName DejaVu Sans
+skinparam shadowing false
+skinparam activityBackgroundColor #E5F5F1
+skinparam activityBorderColor #087F74
+skinparam ArrowColor #087F74
+title Проверка окружения: согласование заявки
+
+|Инициатор|
+start
+$env_step("Подать заявку", "Описание потребности", "Заявка")
+
+|Согласующий|
+if (Данные полные?) then (да)
+  $env_step("Согласовать заявку", "Заявка", "Решение")
+  note right
+    Срок: 1 рабочий день
+    Чек-лист: цель, документы, ответственный
+    [[https://example.org/regulation Инструкция]]
+  end note
+else (нет)
+  :Вернуть на доработку;
+  stop
+endif
+
+|Исполнитель|
+fork
+  :Подготовить документы;
+fork again
+  :Проверить условия;
+end fork
+$env_step("Завершить работу", "Решение", "Комплект документов")
+stop
+@enduml

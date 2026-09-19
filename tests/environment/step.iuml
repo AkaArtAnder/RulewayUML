@@ -1,0 +1,4 @@
+' Только проверочный компонент окружения, не публичный API RulewayUML.
+!procedure $env_step($action, $input, $output)
+:<b>$action</b>\nВход: $input\nРезультат: $output;
+!endprocedure

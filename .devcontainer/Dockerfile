@@ -1,9 +1,8 @@
-FROM mcr.microsoft.com/devcontainers/java:0-17
+FROM mcr.microsoft.com/devcontainers/java:3.1.3-17-bookworm
 
 ARG PLANTUML_VERSION=1.2026.5
 
-RUN sudo rm -f /etc/apt/sources.list.d/yarn.list \
-    && sudo apt-get update \
+RUN sudo apt-get update \
     && sudo apt-get install -y --no-install-recommends \
         ca-certificates \
         curl \

@@ -1,0 +1,121 @@
+' Общее оформление диаграмм деятельности.
+' Подключайте после @startuml, перед содержимым регламента:
+' !include ../components/style.puml
+' Минимальный пример: examples/basic_regulation.puml.
+' Палитра и оригинал логотипа: docs/ruleway_design/.
+
+<style>
+root {
+  FontName DejaVu Sans
+  FontSize 14
+  FontColor #142D3B
+  HyperLinkColor #087F74
+  HyperLinkUnderlineThickness 1
+  LineColor #087F74
+  LineThickness 1.5
+  BackGroundColor #FFFFFF
+  Shadowing 0
+}
+document {
+  BackGroundColor #F5F8F7
+  header, title, caption, footer {
+    BackGroundColor transparent
+    LineColor transparent
+  }
+  header {
+    HorizontalAlignment left
+    FontColor #142D3B
+    FontSize 10
+  }
+  title {
+    FontColor #142D3B
+    FontSize 22
+    FontStyle bold
+    Margin 16
+    Padding 8
+  }
+  caption {
+    FontColor #142D3B
+    FontSize 12
+  }
+  footer {
+    FontColor #142D3B
+    FontSize 10
+  }
+  legend {
+    FontColor #142D3B
+    FontSize 12
+    BackGroundColor #FFFFFF
+    LineColor #087F74
+    RoundCorner 12
+    Padding 12
+  }
+}
+note {
+  FontColor #142D3B
+  FontSize 12
+  BackGroundColor #E5F5F1
+  LineColor #087F74
+  LineThickness 1
+  Padding 10
+}
+swimlane {
+  FontColor #142D3B
+  FontSize 15
+  FontStyle bold
+  BackGroundColor #F5F8F7
+  LineColor #087F74
+  LineThickness 1
+}
+activityDiagram {
+  activity {
+    FontColor #142D3B
+    FontSize 14
+    BackGroundColor #FFFFFF
+    LineColor #087F74
+    LineThickness 1.5
+    RoundCorner 16
+    Padding 12
+    MaximumWidth 300
+  }
+  diamond {
+    FontColor #142D3B
+    FontSize 13
+    BackGroundColor #E5F5F1
+    LineColor #087F74
+    LineThickness 1.5
+  }
+  arrow {
+    FontColor #142D3B
+    FontSize 12
+    LineColor #087F74
+    BackGroundColor #087F74
+    LineThickness 1.5
+  }
+  circle {
+    start, stop, end {
+      LineColor #087F74
+      BackGroundColor #087F74
+    }
+  }
+  activityBar {
+    LineColor #087F74
+    BackGroundColor #087F74
+  }
+  partition, group, composite {
+    FontColor #142D3B
+    FontStyle bold
+    BackGroundColor #E5F5F1
+    LineColor #087F74
+    LineThickness 1
+    RoundCorner 12
+  }
+}
+</style>
+
+' Встроенный знак без надписи работает без сети и путей к картинкам у пользователя.
+' PNG-копия оригинального SVG сохраняет градиент и форму знака в SVG/PNG.
+!include assets/ruleway_logo.iuml
+left header
+<img:$ruleway_logo_data>
+endheader
