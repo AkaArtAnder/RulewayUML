@@ -1,0 +1,21 @@
+' Условие регламента. Подключение: !include ../components/condition.puml
+' Описание параметров: docs/specification/components/condition.md.
+' Возвращает подпись для стандартных if и repeat while; не создаёт переходы.
+!include style.puml
+
+!function $ruleway_condition($question, $basis)
+  !assert %strlen($question) > 0 : "Ruleway: укажите вопрос условия"
+  !assert %strlen($basis) > 0 : "Ruleway: укажите основание для ответа"
+  ' Оформление применяется к каждой строке: теги не переходят через %newline().
+  ' Пустые строки сверху и снизу задают внутренние отступы только этого условия.
+  !local $ruleway_label = %newline()
+  !foreach $ruleway_line in %splitstr($question, %newline())
+    !local $ruleway_label = $ruleway_label + "<center><b>" + $ruleway_line + "</b>" + %newline()
+  !endfor
+  !local $ruleway_separator = %newline()
+  !foreach $ruleway_line in %splitstr("<b>Основание:</b> " + $basis, %newline())
+    !local $ruleway_label = $ruleway_label + $ruleway_separator + "<left>" + $ruleway_line
+    !local $ruleway_separator = %newline()
+  !endfor
+  !return $ruleway_label + %newline()
+!endfunction

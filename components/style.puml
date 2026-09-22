@@ -83,8 +83,10 @@ activityDiagram {
     MaximumWidth 330
   }
   diamond {
+    FontName DejaVu Sans
     FontColor #142D3B
-    FontSize 13
+    FontSize 14
+    HorizontalAlignment center
     BackGroundColor #E5F5F1
     LineColor #087F74
     LineThickness 1.5

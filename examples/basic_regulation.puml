@@ -1,5 +1,6 @@
 @startuml
 !include ../components/action.puml
+!include ../components/condition.puml
 
 title Согласование заявки
 
@@ -20,7 +21,7 @@ $ruleway_action( \
   $sla="1 рабочий день после получения", \
   $subregulation="[[review_regulation.svg Подрегламент: проверка заявки]]" \
 )
-repeat while (Требуется доработка?) is (да) not (нет)
+repeat while ($ruleway_condition("В заключении есть замечания?", "РСЗ-02: заключение")) is (да) not (нет)
 
 $ruleway_action("РСЗ-03", "Согласовать заявку", "Согласующий", \
   "Решение о согласовании", "Зафиксировать решение и передать инициатору.", "1 рабочий день после проверки")

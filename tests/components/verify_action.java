@@ -45,11 +45,12 @@ class VerifyAction {
         Document main = read(output, "basic_regulation");
         for (String name : new String[] {"basic_regulation", "basic_regulation_no_lanes"}) {
             String mainText = text(read(output, name));
-            has(mainText, "Согласование заявки", "Инициатор", "Согласующий", "Требуется доработка?",
+            has(mainText, "Согласование заявки", "Инициатор", "Согласующий", "В заключении есть замечания?",
                     "Подготовить или доработать заявку", "При повторном проходе исправить замечания.",
                     "РСЗ-03 Согласовать заявку", "РСЗ-04 Получить решение");
             for (int i = 1; i <= 4; i++)
-                require(count(mainText, "РСЗ-0" + i) == 1, "Пропущен или повторён ID в " + name);
+                // После ID действия идёт пробел; ссылка на него в основании имеет вид «РСЗ-02:».
+                require(count(mainText, "РСЗ-0" + i + " ") == 1, "Пропущен или повторён ID действия в " + name);
             require(count(mainText, "Ответственный:") == 4 && count(mainText, "Результат:") == 4,
                     "Ожидались четыре действия в " + name);
         }
