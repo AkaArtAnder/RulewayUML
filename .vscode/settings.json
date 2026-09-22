@@ -1,0 +1,4 @@
+{
+  "plantuml.render": "Local",
+  "plantuml.jar": "/opt/plantuml/plantuml.jar"
+}

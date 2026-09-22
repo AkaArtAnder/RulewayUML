@@ -1,0 +1,29 @@
+@startuml
+' Макет В: краткий блок с вынесенной инструкцией. Не реализация компонента.
+!include action_design_content.iuml
+caption В · Инструкция рядом
+start
+:<color:#087F74><b>$ruleway_design_id</b></color>
+<size:16><b>$ruleway_design_name</b></size>
+
+<b>Роль:</b> $ruleway_design_role
+<b>Срок:</b> $ruleway_design_sla
+
+<b>Результат:</b> $ruleway_design_result
+$ruleway_design_template
+!ifndef ruleway_design_no_subreg
+
+$ruleway_design_child
+!endif
+;
+note right
+  <b>Инструкция / чек-лист</b>
+  $ruleway_design_instruction_1
+$ruleway_design_instruction_2
+$ruleway_design_instruction_3
+!ifdef ruleway_design_long
+$ruleway_design_instruction_4
+!endif
+end note
+stop
+@enduml

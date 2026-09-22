@@ -4,6 +4,9 @@
 ' Минимальный пример: examples/basic_regulation.puml.
 ' Палитра и оригинал логотипа: docs/ruleway_design/.
 
+' Цвет идентификатора внутри составной подписи действия.
+!$ruleway_action_id_color = "#087F74"
+
 <style>
 root {
   FontName DejaVu Sans
@@ -76,7 +79,8 @@ activityDiagram {
     LineThickness 1.5
     RoundCorner 16
     Padding 12
-    MaximumWidth 300
+    HorizontalAlignment left
+    MaximumWidth 330
   }
   diamond {
     FontColor #142D3B

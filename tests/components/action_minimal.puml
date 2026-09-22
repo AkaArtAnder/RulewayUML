@@ -1,0 +1,8 @@
+@startuml
+!include ../../components/action.puml
+!include ../../components/style.puml
+!include ../../components/action.puml
+start
+$ruleway_action("РТЕ-01", "Зафиксировать решение", "Согласующий", "Решение принято")
+stop
+@enduml

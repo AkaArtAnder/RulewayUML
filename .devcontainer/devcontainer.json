@@ -16,6 +16,7 @@
     "vscode": {
       // Add the IDs of extensions you want installed when the container is created.
       "extensions": [
+        "jebbs.plantuml@2.18.1",
         "streetsidesoftware.code-spell-checker",
         "vscjava.vscode-java-pack",
         "njpwerner.autodocstring",

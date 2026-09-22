@@ -1,0 +1,38 @@
+' Данные и локальное оформление макетов этапа 2. Это не публичный API.
+!include ../../../components/style.puml
+
+<style>
+activityDiagram {
+  activity {
+    HorizontalAlignment left
+    MaximumWidth 330
+  }
+}
+note {
+  HorizontalAlignment left
+  MaximumWidth 280
+}
+</style>
+
+!$ruleway_design_id = "РСЗ-03"
+!$ruleway_design_name = "Проверить заявку"
+!$ruleway_design_role = "Согласующий"
+!$ruleway_design_sla = "1 рабочий день после получения"
+!$ruleway_design_result = "Заключение с перечнем замечаний"
+!$ruleway_design_instruction_1 = "1. Проверить цель заявки."
+!$ruleway_design_instruction_2 = "2. Сверить комплект документов."
+!$ruleway_design_instruction_3 = "3. Зафиксировать замечания."
+' Демонстрационные адреса: навигация по реальным материалам проверяется на этапе 3.
+!$ruleway_design_template = "[[https://example.org/templates/review Шаблон заключения]]"
+!$ruleway_design_child = "[[https://example.org/regulations/review Подрегламент: проверка заявки]]"
+
+!ifdef ruleway_design_long
+  !$ruleway_design_name = "Проверить заявку на изменение структуры проекта и связанных сущностей трекера"
+  !$ruleway_design_role = "Ответственный за сопровождение процессов"
+  !$ruleway_design_sla = "До конца следующего рабочего дня после получения полного комплекта документов"
+  !$ruleway_design_result = "Заключение о полноте и корректности заявки с перечнем обнаруженных замечаний и рекомендациями по доработке"
+  !$ruleway_design_instruction_1 = "1. Сопоставить цель заявки с описанием предлагаемого изменения."
+  !$ruleway_design_instruction_2 = "2. Проверить заполнение обязательных разделов и комплект подтверждающих документов."
+  !$ruleway_design_instruction_3 = "3. Сверить затрагиваемые сущности и связи с действующим порядком работы."
+  !$ruleway_design_instruction_4 = "4. Зафиксировать каждое замечание и передать заключение инициатору."
+!endif
