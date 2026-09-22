@@ -51,8 +51,8 @@ class VerifyAction {
             for (int i = 1; i <= 4; i++)
                 // После ID действия идёт пробел; ссылка на него в основании имеет вид «РСЗ-02:».
                 require(count(mainText, "РСЗ-0" + i + " ") == 1, "Пропущен или повторён ID действия в " + name);
-            require(count(mainText, "Ответственный:") == 4 && count(mainText, "Результат:") == 4,
-                    "Ожидались четыре действия в " + name);
+            require(count(mainText, "Ответственный:") == 4 && count(mainText, "Результат:") == 5,
+                    "Ожидались четыре действия и результат завершения в " + name);
         }
         require(links(main).equals(Set.of("materials/review_template.html", "review_regulation.svg")),
                 "Основной пример потерял ссылки");

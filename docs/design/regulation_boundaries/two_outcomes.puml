@@ -1,15 +1,14 @@
 @startuml
-!include ../components/action.puml
-!include ../components/condition.puml
-!include ../components/start.puml
-!include ../components/end.puml
+!include ../../../components/action.puml
+!include ../../../components/condition.puml
+!include boundary_design.iuml
 
-title Условие: два окончательных исхода
-caption Учебный пример · согласование или отказ
+title Решение по заявке
+caption Макет завершения · два авторских исхода
 
 start
 note right
-$ruleway_start_label("Заявка передана для принятия решения", "Заявка и материалы для решения")
+$ruleway_design_start_label("Заявка передана для принятия решения", "Заявка и материалы для решения")
 end note
 
 $ruleway_action("РСЗ-01", "Принять решение по заявке", "Согласующий", \
@@ -21,14 +20,14 @@ if ($ruleway_condition("Заявка согласована?", "РСЗ-01: ре�
     "Инициатор получил подтверждение согласования")
   stop
   note right
-  $ruleway_end_label("Заявка согласована", "Инициатор получил подтверждение согласования")
+  $ruleway_design_end_label("Заявка согласована", "Инициатор получил подтверждение согласования")
   end note
 else (нет)
   $ruleway_action("РСЗ-03", "Сообщить об отказе", "Согласующий", \
     "Инициатор получил отказ с указанием причины")
   stop
   note right
-  $ruleway_end_label("В согласовании отказано", "Инициатор получил отказ с указанием причины")
+  $ruleway_design_end_label("В согласовании отказано", "Инициатор получил отказ с указанием причины")
   end note
 endif
 @enduml

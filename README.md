@@ -42,14 +42,16 @@ RulewayUML помогает подойти к описанию процесса 
 
 ## Компоненты
 
-Доступны [общий стиль](components/style.puml) и два компонента:
+Доступны [общий стиль](components/style.puml) и четыре компонента:
 
 - [Действие](docs/specification/components/action.md) — идентификатор, наименование, ответственный и результат; по необходимости — инструкция/чек-лист, срок/SLA и ссылка на дочерний регламент.
 - [Условие](docs/specification/components/condition.md) — вопрос и основание для выбора пути в стандартных `if` и `repeat while`.
+- [Начало](docs/specification/components/start.md) — событие запуска и необходимые входные данные.
+- [Завершение](docs/specification/components/end.md) — исход процесса и полученный результат.
 
-Оба компонента автоматически подключают оформление Ruleway.
+Все компоненты автоматически подключают оформление Ruleway. События начала и исходы завершения формулирует автор регламента.
 
-[Пример «Согласование заявки»](examples/basic_regulation.puml) и его [вариант без дорожек](examples/basic_regulation_no_lanes.puml) показывают четыре действия, ответственных и условие повторной доработки по заключению; из шага проверки можно перейти к [дочернему регламенту](examples/review_regulation.puml) и шаблону результата. Отдельные примеры условия: [два исхода](examples/condition_decision.puml), [доработка](examples/condition_rework.puml) и [многострочный вопрос](examples/condition_long_text.puml).
+[Пример «Согласование заявки»](examples/basic_regulation.puml) и его [вариант без дорожек](examples/basic_regulation_no_lanes.puml) показывают начало, четыре действия, условие доработки и завершение после получения решения; из шага проверки можно перейти к [дочернему регламенту](examples/review_regulation.puml) и шаблону результата. Отдельные примеры: [два исхода](examples/condition_decision.puml), [доработка](examples/condition_rework.puml), [многострочный вопрос](examples/condition_long_text.puml), [минимальные границы](examples/regulation_boundaries_minimal.puml) и [границы с переносами](examples/regulation_boundaries_long_text.puml).
 
 [Руководство по библиотеке](docs/specification/README.md): подключение, правила построения регламентов, предпросмотр и экспорт схем.
 

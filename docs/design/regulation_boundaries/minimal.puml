@@ -1,0 +1,20 @@
+@startuml
+!include ../../../components/action.puml
+!include boundary_design.iuml
+
+title Регистрация обращения
+caption Макет начала и завершения · только обязательные поля
+
+start
+note right
+$ruleway_design_start_label("Поступило обращение")
+end note
+
+$ruleway_action("РРО-01", "Зарегистрировать обращение", "Оператор", \
+  "Обращение зарегистрировано")
+
+stop
+note right
+$ruleway_design_end_label("Обращение зарегистрировано")
+end note
+@enduml

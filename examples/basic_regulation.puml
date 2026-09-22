@@ -1,11 +1,17 @@
 @startuml
 !include ../components/action.puml
 !include ../components/condition.puml
+!include ../components/start.puml
+!include ../components/end.puml
 
 title Согласование заявки
 
 |Инициатор|
 start
+note right
+$ruleway_start_label("У инициатора возникла потребность в согласовании", "Сведения о цели обращения и исходные материалы")
+end note
+
 repeat
 $ruleway_action("РСЗ-01", "Подготовить или доработать заявку", "Инициатор", \
   "Заявка с комплектом документов и учтёнными замечаниями", \
@@ -30,4 +36,7 @@ $ruleway_action("РСЗ-03", "Согласовать заявку", "Согла�
 $ruleway_action("РСЗ-04", "Получить решение", "Инициатор", \
   "Решение получено и принято к работе", "Ознакомиться с решением.", "В день получения")
 stop
+note right
+$ruleway_end_label("Заявка согласована", "Решение получено инициатором и принято к работе")
+end note
 @enduml
