@@ -16,7 +16,8 @@ class VerifyAction {
         for (String omitted : new String[] {"Срок:", "Инструкция / чек-лист", "Подрегламент:"})
             require(!minimalText.contains(omitted), "Пустое поле осталось в минимальном действии: " + omitted);
         require(count(minimalText, "РТЕ-01") == 1, "Повторное include продублировало действие");
-        require(minimal.getElementsByTagName("image").getLength() == 1, "Повторное include изменило марку");
+        int minimalPaths = minimal.getElementsByTagName("path").getLength();
+        require(minimalPaths >= 134 && minimalPaths < 268, "Повторное include потеряло или продублировало марку");
 
         Document content = read(output, "action_content");
         String contentText = text(content);
@@ -64,9 +65,11 @@ class VerifyAction {
         for (String name : new String[] {"action_minimal", "action_content", "action_flow",
                 "basic_regulation", "basic_regulation_no_lanes", "review_regulation", "portable", "action_content_preview"}) {
             Document doc = read(output, name);
-            require(doc.getElementsByTagName("image").getLength() == 1, "Ожидался один знак в " + name);
-            Element mark = (Element) doc.getElementsByTagName("image").item(0);
-            require(href(mark).startsWith("data:image/png;base64,"), "Знак зависит от внешнего файла: " + name);
+            require(doc.getElementsByTagName("image").getLength() == 0, "Осталась растровая вставка в " + name);
+            var paths = doc.getElementsByTagName("path");
+            require(paths.getLength() >= 134, "Потеряны контуры фирменного знака в " + name);
+            require("#142D3B".equals(((Element) paths.item(0)).getAttribute("fill")), "Потерян цвет знака в " + name);
+            require(!text(doc).contains("<center>") && !text(doc).contains("<left>"), "Служебные теги в " + name);
             var png = ImageIO.read(output.resolve(name + ".png").toFile());
             require(png != null && png.getWidth() > 50 && png.getHeight() > 50, "Некорректный PNG: " + name);
             System.out.printf("%s: SVG OK, PNG %d × %d%n", name, png.getWidth(), png.getHeight());
