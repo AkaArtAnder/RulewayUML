@@ -1,0 +1,10 @@
+' Начало регламента. Подключение: !include ../components/start.puml
+' Описание параметров: docs/specification/components/start.md.
+' Возвращает подпись для note right после стандартного start.
+!include style.puml
+!include boundary_label.iuml
+
+!function $ruleway_start_label($event, $inputs = "")
+  !assert %strlen($event) > 0 : "Ruleway: укажите событие начала"
+  !return $ruleway_boundary_label($event, $inputs, "Входы")
+!endfunction

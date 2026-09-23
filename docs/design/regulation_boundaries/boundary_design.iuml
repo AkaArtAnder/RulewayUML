@@ -1,0 +1,41 @@
+' Макет начала и завершения для согласования вида; не публичный API.
+' Функции формируют только текст: start, stop и note остаются в примерах.
+!include ../../../components/style.puml
+
+<style>
+note {
+  FontName DejaVu Sans
+  FontSize 14
+  FontColor #142D3B
+  BackGroundColor #E5F5F1
+  LineColor #087F74
+  LineThickness 1.5
+  Padding 12
+  MaximumWidth 330
+  HorizontalAlignment left
+}
+</style>
+
+!function $ruleway_design_boundary_label($title, $details, $details_label)
+  !local $ruleway_label = ""
+  !local $ruleway_separator = ""
+  ' Каждая строка заголовка сохраняет жирное начертание.
+  !foreach $ruleway_line in %splitstr($title, %newline())
+    !local $ruleway_label = $ruleway_label + $ruleway_separator + "<b>" + $ruleway_line + "</b>"
+    !local $ruleway_separator = %newline()
+  !endfor
+  !if %strlen($details) > 0
+    !local $ruleway_label = $ruleway_label + %newline() + %newline() + "<b>" + $details_label + ":</b> " + $details
+  !endif
+  !return $ruleway_label
+!endfunction
+
+!function $ruleway_design_start_label($event, $inputs = "")
+  !assert %strlen($event) > 0 : "Ruleway: укажите событие начала"
+  !return $ruleway_design_boundary_label($event, $inputs, "Входы")
+!endfunction
+
+!function $ruleway_design_end_label($outcome, $result = "")
+  !assert %strlen($outcome) > 0 : "Ruleway: укажите исход завершения"
+  !return $ruleway_design_boundary_label($outcome, $result, "Результат")
+!endfunction

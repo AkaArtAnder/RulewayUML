@@ -4,6 +4,9 @@
 ' Минимальный пример: examples/basic_regulation.puml.
 ' Палитра и оригинал логотипа: docs/ruleway_design/.
 
+' Цвет идентификатора внутри составной подписи действия.
+!$ruleway_action_id_color = "#087F74"
+
 <style>
 root {
   FontName DejaVu Sans
@@ -52,12 +55,15 @@ document {
   }
 }
 note {
+  FontName DejaVu Sans
   FontColor #142D3B
-  FontSize 12
+  FontSize 14
   BackGroundColor #E5F5F1
   LineColor #087F74
-  LineThickness 1
-  Padding 10
+  LineThickness 1.5
+  Padding 12
+  MaximumWidth 330
+  HorizontalAlignment left
 }
 swimlane {
   FontColor #142D3B
@@ -76,11 +82,14 @@ activityDiagram {
     LineThickness 1.5
     RoundCorner 16
     Padding 12
-    MaximumWidth 300
+    HorizontalAlignment left
+    MaximumWidth 330
   }
   diamond {
+    FontName DejaVu Sans
     FontColor #142D3B
-    FontSize 13
+    FontSize 14
+    HorizontalAlignment center
     BackGroundColor #E5F5F1
     LineColor #087F74
     LineThickness 1.5
@@ -114,8 +123,9 @@ activityDiagram {
 </style>
 
 ' Встроенный знак без надписи работает без сети и путей к картинкам у пользователя.
-' PNG-копия оригинального SVG сохраняет градиент и форму знака в SVG/PNG.
+' Залитые векторные контуры сохраняют форму и приближают градиент оригинала.
+' Размер 13 компенсирует масштабирование спрайта шрифтом заголовка: знак 48 × 48.
 !include assets/ruleway_logo.iuml
 left header
-<img:$ruleway_logo_data>
+<size:13><$ruleway_logo></size>
 endheader

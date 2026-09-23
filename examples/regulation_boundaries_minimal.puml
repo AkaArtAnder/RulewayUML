@@ -1,0 +1,21 @@
+@startuml
+!include ../components/action.puml
+!include ../components/start.puml
+!include ../components/end.puml
+
+title Регистрация обращения
+caption Начало и завершение · только обязательные поля
+
+start
+note right
+$ruleway_start_label("Поступило обращение")
+end note
+
+$ruleway_action("РРО-01", "Зарегистрировать обращение", "Оператор", \
+  "Обращение зарегистрировано")
+
+stop
+note right
+$ruleway_end_label("Обращение зарегистрировано")
+end note
+@enduml

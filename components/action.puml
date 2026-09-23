@@ -1,0 +1,29 @@
+' Действие регламента. Подключение: !include ../components/action.puml
+' Описание параметров: docs/specification/components/action.md.
+' Подключение задаёт оформление и определения, но не создаёт процесс.
+!include style.puml
+
+!procedure $ruleway_action($id, $name, $responsible, $result, $instruction = "", $sla = "", $subregulation = "")
+  !assert %strlen($id) == 6 : "Ruleway: идентификатор должен иметь вид РСТ-03"
+  !assert %substr($id, 0, 1) == "Р" && %substr($id, 3, 1) == "-" : "Ruleway: нужны кириллическая Р, два символа аббревиатуры и дефис"
+  !assert %strpos("0123456789", %substr($id, 4, 1)) >= 0 && %strpos("0123456789", %substr($id, 5, 1)) >= 0 : "Ruleway: номер действия должен состоять из двух цифр"
+  !assert %strlen($name) > 0 : "Ruleway: укажите название действия"
+  !assert %strlen($responsible) > 0 : "Ruleway: укажите ответственную роль"
+  !assert %strlen($result) > 0 : "Ruleway: укажите ожидаемый результат"
+
+  ' Одна строка исходника сохраняет точки с запятой внутри содержимого.
+  ' %newline() переносит отображаемый текст, не создавая новые команды процесса.
+  !local $ruleway_label = "<color:" + $ruleway_action_id_color + "><b>" + $id + "</b></color>  <b>" + $name + "</b>"
+  !local $ruleway_label = $ruleway_label + %newline() + %newline() + "<b>Ответственный:</b> " + $responsible
+  !if %strlen($sla) > 0
+    !local $ruleway_label = $ruleway_label + %newline() + "<b>Срок:</b> " + $sla
+  !endif
+  !local $ruleway_label = $ruleway_label + %newline() + %newline() + "<b>Результат:</b> " + $result
+  !if %strlen($instruction) > 0
+    !local $ruleway_label = $ruleway_label + %newline() + %newline() + "<b>Инструкция / чек-лист</b>" + %newline() + $instruction
+  !endif
+  !if %strlen($subregulation) > 0
+    !local $ruleway_label = $ruleway_label + %newline() + %newline() + $subregulation
+  !endif
+:$ruleway_label;
+!endprocedure

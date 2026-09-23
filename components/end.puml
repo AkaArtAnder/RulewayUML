@@ -1,0 +1,10 @@
+' Завершение регламента. Подключение: !include ../components/end.puml
+' Описание параметров: docs/specification/components/end.md.
+' Возвращает подпись для note right после стандартного stop.
+!include style.puml
+!include boundary_label.iuml
+
+!function $ruleway_end_label($outcome, $result = "")
+  !assert %strlen($outcome) > 0 : "Ruleway: укажите исход завершения"
+  !return $ruleway_boundary_label($outcome, $result, "Результат")
+!endfunction

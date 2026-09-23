@@ -1,0 +1,14 @@
+' Внутренняя сборка подписей начала и завершения; не публичный API.
+!function $ruleway_boundary_label($title, $details, $details_label)
+  !local $ruleway_label = ""
+  !local $ruleway_separator = ""
+  ' Каждая строка заголовка сохраняет жирное начертание.
+  !foreach $ruleway_line in %splitstr($title, %newline())
+    !local $ruleway_label = $ruleway_label + $ruleway_separator + "<b>" + $ruleway_line + "</b>"
+    !local $ruleway_separator = %newline()
+  !endfor
+  !if %strlen($details) > 0
+    !local $ruleway_label = $ruleway_label + %newline() + %newline() + "<b>" + $details_label + ":</b> " + $details
+  !endif
+  !return $ruleway_label
+!endfunction
