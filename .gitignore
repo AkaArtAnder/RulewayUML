@@ -1,2 +1,4 @@
 .codex/
-dist/rulewayuml-*.zip
+.tools/rulewayuml-workspace/
+.tools/rulewayuml-user-workspace/
+.tools/rulewayuml-user-benchmark/

@@ -20,9 +20,9 @@ def build(destination):
     repo = builder.parent.parent
     if destination.resolve().is_relative_to(builder):
         raise ValueError("Каталог сборки должен находиться вне исходников скилла.")
-    version_match = re.search(r'^  version: "([0-9A-Za-z.-]+)"$', (builder / "source/skill_template.md").read_text(), re.M)
+    version_match = re.search(r'^  version: "(\d+\.\d+\.\d+)"$', (builder / "source/skill_template.md").read_text(), re.M)
     if version_match is None:
-        raise ValueError("В шаблоне не указана версия пакета.")
+        raise ValueError("В шаблоне нужна версия пакета в формате X.Y.Z без суффикса.")
     version = version_match.group(1)
     destination.mkdir(parents=True, exist_ok=True)
     archive_path = destination / f"rulewayuml-{version}.zip"
